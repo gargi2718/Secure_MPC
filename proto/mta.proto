@@ -1,0 +1,25 @@
+// MTA/CoT messages
+syntax = "proto3";
+
+package Cryptography_Task.auth;
+
+// One OT round: sender sends A
+message OTInit {
+  bytes A_point     = 1;
+}
+
+// Receiver sends B
+message OTReply {
+  bytes B_point     = 1;
+}
+
+// Sender sends encrypted m0/m1
+message OTSend {
+  bytes enc0        = 1;
+  bytes enc1        = 2;
+}
+
+// Receiver outputs mc
+message OTFinish {
+  bytes mc          = 1;
+}

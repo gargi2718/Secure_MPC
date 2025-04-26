@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package Cryptography_Task.auth;
+
+// Client→Server: initial auth request
+message AuthRequest {
+  bytes serial_hash = 1;
+  bytes signature   = 2;
+}
+
+// Server→Client: challenge
+message AuthChallenge {
+  bytes nonce        = 1;
+  bytes signature    = 2; // signed by server
+}
+
+// Client→Server: challenge response
+message AuthResponse {
+  bytes nonce_hash   = 1;
+  bytes signature    = 2; // signed by client
+}
